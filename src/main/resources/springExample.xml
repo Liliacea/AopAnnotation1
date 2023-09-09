@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+           xmlns:context="http://www.springframework.org/schema/context"
+
+           xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <bean id="criticismEngine"
+          class="springidol.CriticismEngineImpl">
+        <property name="criticismPool">
+            <list>
+                <value>aaaaaaaaaaaaaaa</value>
+                <value>bbbbbbbbbbbbbbb</value>
+                <value>ccccccccccccccc</value>
+            </list>
+        </property>
+
+    </bean>
+
+
+
+
+    <bean id="smb"
+          class="springidol.SmbPerforn" />
+
+
+
+
+
+    <bean class="springidol.JudgeAspect" factory-method="aspectOf">
+
+        <property name="criticismEngine" ref="criticismEngine" />
+    </bean>
+
+
+
+
+
+    </beans>
